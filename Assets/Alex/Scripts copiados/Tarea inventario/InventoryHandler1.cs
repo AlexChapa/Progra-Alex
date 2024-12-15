@@ -6,13 +6,13 @@ using UnityEngine.UI;
 namespace Alex
 {
 
-    public class InventoryHandler : MonoBehaviour
+    public class InventoryHandler1 : MonoBehaviour
     {
 
-        public List<SOItem> inventory = new List<SOItem>();
+        public List<SOItem2> inventory = new List<SOItem2>();
         [SerializeField] private Image newItemImage;
 
-        public void AddItem(SOItem item)
+        public void AddItem(SOItem2 item)
         {
             inventory.Add(item);
             Debug.Log("Se ha añadido " + item.name + " a tu inventario");

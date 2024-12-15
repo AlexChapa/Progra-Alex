@@ -12,7 +12,7 @@ public class ItemUI : MonoBehaviour
         [SerializeField] private TextMeshProUGUI itemDescription;
         [SerializeField] private Image itemImage;
 
-        public void SetItemInfo(SOItem item)
+        public void SetItemInfo(SOItem2 item)
         {
             itemName.text = item.name;
             itemDescription.text = item.description;

@@ -21,7 +21,7 @@ public class SpawnEnemy : MonoBehaviour
     {
         if (spawnActivo)
         {
-            float posicionX= Random.Range(2f, 2f); //spawn random en un rango
+            float posicionX= Random.Range(2f, 2f);
             puntoInicio = new Vector3(posicionX, 0, 0);
 
             Quaternion rotacionQuaternion = Quaternion.Euler(rotacion);

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff770a56b7cf4234abdf7d13cf6b56cc, type: 3}
-  m_Name: Pancho villa
+  m_Name: Llave roja
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 0}
-  sprite: {fileID: 0}
-  names: Pancho
-  description: Es de villa omg
+  itemPrefab: {fileID: 3529704742915098956, guid: 9cbb041167db13c4a9dac55a0f6fa465, type: 3}
+  sprite: {fileID: 21300000, guid: 161d71fbfbbe6f647ad1aa72fe144144, type: 3}
+  names: Llave roja
+  description: Abre la puerta roja
