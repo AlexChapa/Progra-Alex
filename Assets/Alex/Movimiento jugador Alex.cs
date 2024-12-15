@@ -1,22 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MovimientojugadorAlex : MonoBehaviour
+
+public class PlayerMovement : MonoBehaviour
 {
-    public float crouchSpeed = 3;
-    public float walkSpeed = 5;
-    public float runSpeed = 7;
-    private Rigidbody rb;
+    public float runSpeed = 10f;
+    public float crouchSpeed = 3f;
+    public float walkSpeed = 5f;
+    public float jumpForce = 7f; // Añadido: Fuerza del salto
 
-    private void Awake()
+    private Rigidbody rb;
+    private bool isGrounded;
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    void Update()
     {
         Move();
+        Jump();
     }
 
     private void Move()
@@ -26,7 +32,14 @@ public class MovimientojugadorAlex : MonoBehaviour
 
         Vector3 moveDirection = (cameraForward * VerticalMove() + cameraRight * HorizontalMove()).normalized;
 
-        rb.velocity = moveDirection * ActualSpeed();
+        rb.velocity = new Vector3(moveDirection.x * ActualSpeed(), rb.velocity.y, moveDirection.z * ActualSpeed()); 
+    }
+    private void Jump()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+          rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 
     private float ActualSpeed()
@@ -43,6 +56,7 @@ public class MovimientojugadorAlex : MonoBehaviour
     {
         return Input.GetAxis("Vertical");
     }
+
     private bool IsRunning()
     {
         return Input.GetKey(KeyCode.LeftShift);
@@ -53,4 +67,21 @@ public class MovimientojugadorAlex : MonoBehaviour
         return Input.GetKey(KeyCode.LeftControl);
     }
 
+
+    private void OnCollisionEnter(Collision collision) 
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision) 
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+    }
 }
+

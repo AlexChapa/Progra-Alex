@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using Profe;
+using Alex;
 
-namespace Alex
-{
-    public class ItemUI : MonoBehaviour
+
+public class ItemUI : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI itemName;
         [SerializeField] private TextMeshProUGUI itemDescription;
@@ -21,4 +20,4 @@ namespace Alex
         }
 
     } 
-}
+

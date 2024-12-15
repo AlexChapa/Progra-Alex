@@ -1,9 +1,6 @@
 using UnityEngine;
 
-
-namespace Alex
-{
-    public class cameraController : MonoBehaviour
+    public class CameraController : MonoBehaviour
     {
 
         [Header("Camera Settings")]
@@ -28,11 +25,11 @@ namespace Alex
 
         private Vector3 startPos; // Almacena la posicion original de la cabeza
 
-        private movementControlleAlex movementController; // Necesitamos esta referencia para saber si el personaje se está moviendo o no
+        private PlayerMovement movementController; // Necesitamos esta referencia para saber si el personaje se está moviendo o no
 
         private void Start()
         {
-            movementController = FindObjectOfType<movementControlleAlex>();
+            movementController = FindObjectOfType<PlayerMovement>();
 
             if (player == null)
             {
@@ -53,7 +50,7 @@ namespace Alex
             RotateCamera();
 
             if (!moveHead) return;
-            BlobMove();
+            //BlobMove();
             ResetPosition();
         }
 
@@ -81,22 +78,22 @@ namespace Alex
 
         #region Camera Movement
 
-        private void BlobMove()
-        {
-            if (!movementController.IsMoving())
-            {
-                return;
-            }
+        //private void BlobMove()
+        //{
+        //    if (!movementController.IsMoving())
+        //    {
+        //        return;
+        //    }
 
-            if (movementController.IsMoving() && !movementController.IsRunning())
-            {
-                transform.localPosition += FootStepMotion();
-            }
-            else if (movementController.IsMoving() && movementController.IsRunning())
-            {
-                transform.localPosition += RunningFootStepMotion();
-            }
-        }
+        //    if (movementController.IsMoving() && !movementController.IsRunning())
+        //    {
+        //        transform.localPosition += FootStepMotion();
+        //    }
+        //    else if (movementController.IsMoving() && movementController.IsRunning())
+        //    {
+        //        transform.localPosition += RunningFootStepMotion();
+        //    }
+        //}
 
         private void ResetPosition()
         {
@@ -124,4 +121,3 @@ namespace Alex
 
     }
 
-}
