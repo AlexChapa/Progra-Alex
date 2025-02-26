@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/PROFE/SCENES/GAME.unity
     guid: d7c03489968bca9479fc59947e8e139f
   m_configObjects: {}
