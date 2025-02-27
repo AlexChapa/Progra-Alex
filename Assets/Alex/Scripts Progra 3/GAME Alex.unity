@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 49799964}
   - component: {fileID: 49799963}
   - component: {fileID: 49799962}
+  - component: {fileID: 49799967}
   m_Layer: 7
   m_Name: Puertota de llave (2)
   m_TagString: Untagged
@@ -472,6 +473,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 247490424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &49799967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49799961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03544a3fc51e90f458431634eba36104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDePuerta: 2
+  eventoActivado: 0
+  showKeysNames: 0
+  key: {fileID: 0}
+  keys: []
 --- !u!1 &90161270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,8 +2687,8 @@ Transform:
   - {fileID: 1997105609}
   - {fileID: 1717550266}
   - {fileID: 49799966}
-  - {fileID: 4611727363561301719}
   - {fileID: 1710313502}
+  - {fileID: 4611727363561301719}
   - {fileID: 684340375396766034}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11478,6 +11496,7 @@ GameObject:
   - component: {fileID: 1270553446}
   - component: {fileID: 1270553445}
   - component: {fileID: 1270553444}
+  - component: {fileID: 1270553449}
   m_Layer: 7
   m_Name: Puertota automatica (1)
   m_TagString: Untagged
@@ -11586,6 +11605,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 247490424}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1270553449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270553443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03544a3fc51e90f458431634eba36104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDePuerta: 0
+  eventoActivado: 0
+  showKeysNames: 0
+  key: {fileID: 0}
+  keys: []
 --- !u!1 &1275075319
 GameObject:
   m_ObjectHideFlags: 0
@@ -15889,6 +15925,7 @@ GameObject:
   - component: {fileID: 1710313500}
   - component: {fileID: 1710313499}
   - component: {fileID: 1710313498}
+  - component: {fileID: 1710313503}
   m_Layer: 7
   m_Name: Puertota multiples llaves (1)
   m_TagString: Untagged
@@ -15997,6 +16034,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 247490424}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1710313503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710313497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03544a3fc51e90f458431634eba36104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDePuerta: 4
+  eventoActivado: 0
+  showKeysNames: 0
+  key: {fileID: 0}
+  keys: []
 --- !u!1 &1714514661
 GameObject:
   m_ObjectHideFlags: 0
@@ -16134,6 +16188,7 @@ GameObject:
   - component: {fileID: 1717550264}
   - component: {fileID: 1717550263}
   - component: {fileID: 1717550262}
+  - component: {fileID: 1717550267}
   m_Layer: 7
   m_Name: Puertota de llave (1)
   m_TagString: Untagged
@@ -16242,6 +16297,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 247490424}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1717550267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717550261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03544a3fc51e90f458431634eba36104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDePuerta: 2
+  eventoActivado: 0
+  showKeysNames: 0
+  key: {fileID: 0}
+  keys: []
 --- !u!1 &1729945622
 GameObject:
   m_ObjectHideFlags: 0
@@ -18460,6 +18532,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204cf7c62cb2507498b472cf29529e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryCanvas: {fileID: 0}
+  uiItemPrefab: {fileID: 0}
+  displayArea: {fileID: 0}
+  pages:
+  - itemsDeployed: 0
+    items: []
+  - itemsDeployed: 0
+    items: []
+  - itemsDeployed: 0
+    items: []
+  - itemsDeployed: 0
+    items: []
+  actualPage: 0
+  inventoryRef: {fileID: 0}
+  inventoryOpened: 0
 --- !u!1 &1976869874
 GameObject:
   m_ObjectHideFlags: 0
@@ -18664,6 +18751,7 @@ GameObject:
   - component: {fileID: 1997105612}
   - component: {fileID: 1997105611}
   - component: {fileID: 1997105610}
+  - component: {fileID: 1997105614}
   m_Layer: 7
   m_Name: Puertota de llave (3)
   m_TagString: Untagged
@@ -18772,6 +18860,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997105608}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1997105614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997105608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03544a3fc51e90f458431634eba36104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDePuerta: 2
+  eventoActivado: 0
+  showKeysNames: 0
+  key: {fileID: 0}
+  keys: []
 --- !u!136 &2023675419
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19722,6 +19827,7 @@ GameObject:
   - component: {fileID: 7672111094158300089}
   - component: {fileID: 4537442239237799264}
   - component: {fileID: 1286501699010102904}
+  - component: {fileID: 7820831403343855431}
   m_Layer: 7
   m_Name: Puertota multiples llaves
   m_TagString: Untagged
@@ -19821,6 +19927,7 @@ GameObject:
   - component: {fileID: 3451895215999550057}
   - component: {fileID: 634188641217817172}
   - component: {fileID: 7382841228468548216}
+  - component: {fileID: 7382841228468548217}
   m_Layer: 7
   m_Name: Puertota evento
   m_TagString: Untagged
@@ -19853,6 +19960,7 @@ GameObject:
   - component: {fileID: 5373605539150846157}
   - component: {fileID: 7377813411642039416}
   - component: {fileID: 6753275186473400879}
+  - component: {fileID: 7377813411642039417}
   m_Layer: 7
   m_Name: Puertota de llave
   m_TagString: Untagged
@@ -20451,6 +20559,7 @@ GameObject:
   - component: {fileID: 8326988966085985406}
   - component: {fileID: 1713677444732897830}
   - component: {fileID: 2180241572241178609}
+  - component: {fileID: 8326988966085985407}
   m_Layer: 7
   m_Name: Puertota normal
   m_TagString: Untagged
@@ -20825,6 +20934,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7377813411642039417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525654246376308314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03544a3fc51e90f458431634eba36104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDePuerta: 2
+  eventoActivado: 0
+  showKeysNames: 0
+  key: {fileID: 0}
+  keys: []
 --- !u!114 &7382841228468548216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20837,6 +20963,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902dbb58096285d43a1bb0adc9de8205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7382841228468548217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044622181357496733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03544a3fc51e90f458431634eba36104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDePuerta: 3
+  eventoActivado: 0
+  showKeysNames: 0
+  key: {fileID: 0}
+  keys: []
 --- !u!1 &7495638439967577201
 GameObject:
   m_ObjectHideFlags: 0
@@ -20850,6 +20993,7 @@ GameObject:
   - component: {fileID: 8766971917057827743}
   - component: {fileID: 8916637987688007100}
   - component: {fileID: 6777186842392073235}
+  - component: {fileID: 8916637987688007101}
   m_Layer: 7
   m_Name: Puertota automatica
   m_TagString: Untagged
@@ -20942,6 +21086,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487795501974486280}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7820831403343855431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487795501974486280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03544a3fc51e90f458431634eba36104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDePuerta: 4
+  eventoActivado: 0
+  showKeysNames: 0
+  key: {fileID: 0}
+  keys: []
 --- !u!23 &8326988966085985406
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20987,6 +21148,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8326988966085985407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590338668947410368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03544a3fc51e90f458431634eba36104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDePuerta: 1
+  eventoActivado: 0
+  showKeysNames: 0
+  key: {fileID: 0}
+  keys: []
 --- !u!1001 &8426192043313507567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21155,6 +21333,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8916637987688007101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495638439967577201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03544a3fc51e90f458431634eba36104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDePuerta: 0
+  eventoActivado: 0
+  showKeysNames: 0
+  key: {fileID: 0}
+  keys: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
