@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/PROFE/SCENES/GAME.unity
     guid: d7c03489968bca9479fc59947e8e139f
+  - enabled: 1
+    path: Assets/Alex/Scripts Progra 3/GAME Alex.unity
+    guid: a21447b5711651e41a7ca6813216f006
+  - enabled: 1
+    path: Assets/Alex/Scripts Progra 3/Creditos.unity
+    guid: 412eada679cb7be43b3a373a7f88210a
   m_configObjects: {}

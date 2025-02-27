@@ -5,7 +5,7 @@ using UnityEngine;
 /// 
 /// Un movimiento que unicamente es lateral, salto, y ya, Usas CharacterController
 /// 
-/// Un movimiento con Transform puedes hacer de todo, pero requiere más trabajo
+/// Un movimiento con Transform puedes hacer de todo, pero requiere mï¿½s trabajo
 /// 
 /// Inputs
 /// Ridigbody
@@ -42,7 +42,7 @@ namespace Alex
 
         private void Move()
         {
-            rb.velocity = transform.rotation * new Vector3(HorizontalMove(), 0, VerticalMove()) * ActualSpeed();
+            rb.linearVelocity = transform.rotation * new Vector3(HorizontalMove(), 0, VerticalMove()) * ActualSpeed();
         }
 
         private float ActualSpeed()

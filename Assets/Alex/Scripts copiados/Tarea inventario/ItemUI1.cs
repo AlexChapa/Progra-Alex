@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using Alex;
+//using Alex;
 
 
 public class ItemUI : MonoBehaviour

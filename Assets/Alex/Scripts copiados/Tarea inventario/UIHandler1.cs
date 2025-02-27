@@ -71,11 +71,11 @@ namespace Alex
                     return;
                 }
 
-                else if (inventoryRef.inventory.Count > actualItems) 
+                else if (inventoryRef.inventory.Count > actualItems)
                 {
 
 
-                    for (int i = GetTotalItemsDeployed(); i < inventoryRef.inventory.Count; i++) 
+                    for (int i = GetTotalItemsDeployed(); i < inventoryRef.inventory.Count; i++)
                     {
                         GameObject item = Instantiate(uiItemPrefab);
                         item.transform.SetParent(displayArea.transform);
@@ -84,7 +84,7 @@ namespace Alex
                         pages[actualPage].items[pages[actualPage].itemsDeployed] = item;
                         pages[actualPage].itemsDeployed++;
 
-                        if (pages[actualPage].itemsDeployed >= maxItemsPerPage) 
+                        if (pages[actualPage].itemsDeployed >= maxItemsPerPage)
                         {
                             actualPage++;
                         }
@@ -163,7 +163,7 @@ namespace Alex
         [ContextMenu("Hide All Items")]
         private void HideAllItems()
         {
-            for (int page = 0; page <= actualPage; page++) 
+            for (int page = 0; page <= actualPage; page++)
             {
                 Debug.Log(page);
                 for (int item = 0; item < pages[page].itemsDeployed; item++)
@@ -190,10 +190,10 @@ namespace Alex
     public struct Page
     {
         public int itemsDeployed;
-        public GameObject[] items; 
+        public GameObject[] items;
     }
-
 }
+
 
 
 
