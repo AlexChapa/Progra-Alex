@@ -13,114 +13,114 @@ namespace AlexWeather
 
     public class WeatherApi : MonoBehaviour
     {
-        [SerializeField] public WeatherData data; //Estructura de la data del clima
-        [SerializeField] public Country[] countries = new Country[10]; //Paises
-        [SerializeField] public int currentCountry = -1; // Índice del país actual
+        [SerializeField] public WeatherData data;
+        [SerializeField] public Country[] countries = new Country[10];
+        [SerializeField] public int currentCountry = -1;
 
-        [SerializeField] private VolumeProfile volumenProfile; //Perfil de volumen
-        [SerializeField] private float bloomColorTransitionSpeed; //Velocidad de transicion de color
-        [SerializeField] private float colorAdjustmentSpeed; //Velocidad de transicion de balance de blancos
+        [SerializeField] private VolumeProfile volumenProfile;
+        [SerializeField] private float bloomColorTransitionSpeed;
+        [SerializeField] private float colorAdjustmentSpeed;
 
         [SerializeField] private Transform ligth;
         [SerializeField] private TextMeshProUGUI countryUI;
 
-        private Color actualColor; //Color actual
-        private Color actualAdjustmentColor; //Color de ajuste actual
+        private Color actualColor;
+        private Color actualAdjustmentColor;
 
-        private static readonly string apiKey = "7fe45acb4f5a69f83c45312aad97613a"; //API Key
-        private string json; //JSON
+        private static readonly string apiKey = "7fe45acb4f5a69f83c45312aad97613a";
+        private string json;
 
         private void Start()
         {
-            StartCoroutine(RetrieveWhwatherData()); //Obtiene la data del clima
+            StartCoroutine(RetrieveWhwatherData());
         }
 
         private void Update()
         {
-            countryUI.text = " Current Weather : " + data.name; //Muestra la zona horaria en la UI
+            countryUI.text = " Current Weather : " + data.name;
         }
 
         IEnumerator RetrieveWhwatherData()
         {
             while (true)
             {
-                UnityWebRequest request = new UnityWebRequest(CountryURL()); //Crea un objeto de tipo UnityWebRequest con la URL del país
-                request.downloadHandler = new DownloadHandlerBuffer(); //Descarga la data
+                UnityWebRequest request = new UnityWebRequest(CountryURL());
+                request.downloadHandler = new DownloadHandlerBuffer();
 
-                yield return request.SendWebRequest(); //Espera a que se descargue la data
+                yield return request.SendWebRequest();
 
-                if (request.result != UnityWebRequest.Result.Success) //Si hay un error
+                if (request.result != UnityWebRequest.Result.Success)
                 {
-                    Debug.Log(request.error); //Error
+                    Debug.Log(request.error);
                 }
                 else
                 {
-                    Debug.Log(request.downloadHandler.text); //JSON
-                    json = request.downloadHandler.text; // JSON
-                    DecodeJson(); //Decodifica el JSON
-                    yield return new WaitForSeconds(2); //Espera 2 segundos para que se cargue la data
-                    actualColor = GetColorByTemp(); //Obtiene el color segun la temperatura
-                    actualAdjustmentColor = GetAdjustmentsColorByTemp(); //Obtiene el color segun la temperatura
-                    StartCoroutine(ColorAdjustmentTransition()); //Transicion de balance de blancos
-                    StartCoroutine(BloomColorTransition()); //Transicion de color
+                    Debug.Log(request.downloadHandler.text);
+                    json = request.downloadHandler.text;
+                    DecodeJson();
+                    yield return new WaitForSeconds(2);
+                    actualColor = GetColorByTemp();
+                    actualAdjustmentColor = GetAdjustmentsColorByTemp();
+                    StartCoroutine(ColorAdjustmentTransition());
+                    StartCoroutine(BloomColorTransition());
                 }
-                yield return new WaitForSecondsRealtime(90); //Espera 5 segundos
+                yield return new WaitForSecondsRealtime(90);
             }
         }
 
-        private IEnumerator BloomColorTransition() //Transicion de color
+        private IEnumerator BloomColorTransition()
         {
-            yield return new WaitUntil(() => TransitionColorBloom() == actualColor); //Espera a que la transicion de color termine
+            yield return new WaitUntil(() => TransitionColorBloom() == actualColor);
             Debug.Log("Color Cambiado Bloom");
         }
-        private IEnumerator ColorAdjustmentTransition() // Transicion de ColorAdjustments
+        private IEnumerator ColorAdjustmentTransition()
         {
-            yield return new WaitUntil(() => ColorAdjustments() == actualAdjustmentColor); //Espera a que la transicion de balance de blancos termine
+            yield return new WaitUntil(() => ColorAdjustments() == actualAdjustmentColor);
             Debug.Log("Color Adjustments Cambiado");
         }
 
-        private Color TransitionColorBloom() //Transicion de color
+        private Color TransitionColorBloom()
         {
-            volumenProfile.TryGet(out Bloom bloom); // Obtiene el bloom del perfil de volumen
-            bloom.tint.value = Color.Lerp(bloom.tint.value, actualColor, bloomColorTransitionSpeed); //Transicion de color
-            return bloom.tint.value; //Retorna el color
+            volumenProfile.TryGet(out Bloom bloom); 
+            bloom.tint.value = Color.Lerp(bloom.tint.value, actualColor, bloomColorTransitionSpeed);
+            return bloom.tint.value;
         }
-        private Color ColorAdjustments() //Transicion de balance de blancos
+        private Color ColorAdjustments() 
         {
-            volumenProfile.TryGet(out ColorAdjustments colorAdjustments); // Obtiene el balance de blancos del perfil de volumen
-            colorAdjustments.colorFilter.value = Color.Lerp(colorAdjustments.colorFilter.value, actualAdjustmentColor, colorAdjustmentSpeed); //Transicion de balance de blancos
-            return colorAdjustments.colorFilter.value; //Retorna el color
+            volumenProfile.TryGet(out ColorAdjustments colorAdjustments);
+            colorAdjustments.colorFilter.value = Color.Lerp(colorAdjustments.colorFilter.value, actualAdjustmentColor, colorAdjustmentSpeed);
+            return colorAdjustments.colorFilter.value;
         }
 
-        private Color GetColorByTemp() //Obtiene el color segun la temperatura
+        private Color GetColorByTemp()
         {
             switch (data.actualTemp)
             {
-                case var color when data.actualTemp <= 8: //Si la temperatura es menor o igual a 8
+                case var color when data.actualTemp <= 8:
                     {
                         actualColor = Color.cyan;
-                        StartCoroutine(LightMove()); //Mueve la luz
+                        StartCoroutine(LightMove());
                         return actualColor;
                     }
 
                 case var color when data.actualTemp > 8 && data.actualTemp < 24:
                     {
                         actualColor = Color.blue;
-                        StartCoroutine(LightMove()); //Mueve la luz
+                        StartCoroutine(LightMove());
                         return actualColor;
                     }
 
                 case var color when data.actualTemp > 24 && data.actualTemp < 45:
                     {
                         actualColor = Color.yellow;
-                        StartCoroutine(LightMove()); //Mueve la luz
+                        StartCoroutine(LightMove());
                         return actualColor;
                     }
 
                 case var color when data.actualTemp >= 45:
                     {
                         actualColor = Color.red;
-                        StartCoroutine(LightMove()); //Mueve la luz
+                        StartCoroutine(LightMove());
                         return actualColor;
                     }
 
@@ -130,35 +130,35 @@ namespace AlexWeather
                     }
             }
         }
-        private Color GetAdjustmentsColorByTemp() //Obtiene el color segun la temperatura
+        private Color GetAdjustmentsColorByTemp() 
         {
             switch (data.actualTemp)
             {
-                case var color when data.actualTemp <= 8: //Si la temperatura es menor o igual a 8
+                case var color when data.actualTemp <= 8: 
                     {
                         actualAdjustmentColor = Color.blue;
-                        StartCoroutine(LightMove()); //Mueve la luz
+                        StartCoroutine(LightMove());
                         return actualAdjustmentColor;
                     }
 
                 case var color when data.actualTemp > 8 && data.actualTemp < 24:
                     {
                         actualAdjustmentColor = Color.cyan;
-                        StartCoroutine(LightMove()); //Mueve la luz
+                        StartCoroutine(LightMove());
                         return actualAdjustmentColor;
                     }
 
                 case var color when data.actualTemp > 24 && data.actualTemp < 45:
                     {
                         actualAdjustmentColor = Color.yellow;
-                        StartCoroutine(LightMove()); //Mueve la luz
+                        StartCoroutine(LightMove());
                         return actualAdjustmentColor;
                     }
 
                 case var color when data.actualTemp >= 45:
                     {
                         actualAdjustmentColor = Color.red;
-                        StartCoroutine(LightMove()); //Mueve la luz
+                        StartCoroutine(LightMove());
                         return actualAdjustmentColor;
                     }
 
@@ -173,36 +173,36 @@ namespace AlexWeather
         {
             var weatherJson = JSON.Parse(json);
 
-            data.actualTemp = float.Parse(weatherJson["current"]["temp"].Value); //Temperatura actual
-            data.name = weatherJson["timezone"].Value; //Zona horaria
-            data.windSpeed = float.Parse(weatherJson["current"]["wind_speed"].Value); //Velocidad del viento
-            data.humidity = float.Parse(weatherJson["current"]["humidity"].Value); //Humedad
+            data.actualTemp = float.Parse(weatherJson["current"]["temp"].Value);
+            data.name = weatherJson["timezone"].Value;
+            data.windSpeed = float.Parse(weatherJson["current"]["wind_speed"].Value); 
+            data.humidity = float.Parse(weatherJson["current"]["humidity"].Value); 
 
-            // Actualiza el nombre del país actual
-            if (currentCountry >= 0 && currentCountry < countries.Length) //
+          
+            if (currentCountry >= 0 && currentCountry < countries.Length)
             {
                 countries[currentCountry].name = weatherJson["timezone"].Value;
             }
         }
-        string CountryURL() //URL del pais
+        string CountryURL()
         {
-            Country country = RandomCountry(); // Obtiene un país aleatorio
+            Country country = RandomCountry();
 
-            string url = $"https://api.openweathermap.org/data/3.0/onecall?lat={country.latitude}&lon={country.longitude}&appid={apiKey}&lang=sp&units=metric";  // Construye la URL de la API usando la latitud y longitud del país aleatorio
-            return url; // Retorna la URL
+            string url = $"https://api.openweathermap.org/data/3.0/onecall?lat={country.latitude}&lon={country.longitude}&appid={apiKey}&lang=sp&units=metric";
+            return url; 
         }
-        Country RandomCountry() // Obtiene un país aleatorio
+        Country RandomCountry() 
         {
-            currentCountry = Random.Range(0, countries.Length); // Genera un índice aleatorio
-            return countries[currentCountry]; // Retorna el país en el índice aleatorio
+            currentCountry = Random.Range(0, countries.Length); 
+            return countries[currentCountry]; 
         }
         IEnumerator LightMove()
-        //Mueve la luz
+        
         {
             while (true)
             {
-                ligth.Rotate(new Vector3(50f, 0, 0), 5f); //Rota el sol
-                yield return new WaitForSeconds(45f); //Espera 5 segundos
+                ligth.Rotate(new Vector3(50f, 0, 0), 5f); 
+                yield return new WaitForSeconds(45f); 
             }
         }
 

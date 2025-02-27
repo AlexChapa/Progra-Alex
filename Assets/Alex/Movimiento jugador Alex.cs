@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 10f;
     public float crouchSpeed = 3f;
     public float walkSpeed = 5f;
-    public float jumpForce = 7f; // A�adido: Fuerza del salto
+    public float jumpForce = 7f; 
 
     private Rigidbody rb;
     private bool isGrounded;

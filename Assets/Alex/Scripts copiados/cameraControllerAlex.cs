@@ -4,8 +4,8 @@ using UnityEngine;
     {
 
         [Header("Camera Settings")]
-        [SerializeField] private Transform player; // Objeto a rotar
-        [SerializeField] private float mouseSensitivity; // Sensibilidad del mouse
+        [SerializeField] private Transform player;
+        [SerializeField] private float mouseSensitivity; 
         [SerializeField] private float smoothnes; // Desfase
         [SerializeField] private float minAngleY; // Minima rotacion en vertical
         [SerializeField] private float maxAngleY; // Maxima rotacion en vertical

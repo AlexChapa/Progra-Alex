@@ -4,7 +4,7 @@ using UnityEngine;
 namespace AlexDoor
 {
 
-    // Tipos de puerta: Automatica, Normal, DeLlave, Evento, MultiplesLlaves
+    
     public class Door : MonoBehaviour, Interactable
     {
         [SerializeField] public TipoDePuerta tipoDePuerta;
