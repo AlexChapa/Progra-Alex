@@ -40,8 +40,8 @@ using UnityEngine;
                 Debug.Log("No hay jugador");
             }
 
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
 
         }
 
