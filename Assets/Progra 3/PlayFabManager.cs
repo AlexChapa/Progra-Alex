@@ -2,6 +2,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -143,6 +144,27 @@ public class PlayFabManager : MonoBehaviour
     private void PlayfabErrorMessage(PlayFabError error)
     {
         Debug.LogWarning(error.ErrorMessage);
+    }
+
+    public void UpdaeLeaderBoard(string leaderboard, int value)
+    {
+        var request = new UpdatePlayerStatisticsRequest()
+        {
+            Statistics = new List<StatisticUpdate>()
+            {
+                new StatisticUpdate()
+                {
+                    StatisticName = leaderboard,
+                    Value = value
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderUpdtedSucces, PlayfabErrorMessage);
+    }
+
+    private void OnLeaderUpdtedSucces(UpdatePlayerStatisticsResult result)
+    {
+        Debug.Log("Se actualizó el leaderboard correctamente");
     }
 }
 
